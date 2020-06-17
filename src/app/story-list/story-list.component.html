@@ -1,3 +1,15 @@
-<p>
-  story-list works!
-</p>
+<ul id="list-container">
+  <li *ngFor="let word of words">
+    <div class="content">
+      <i
+        [ngClass]="{
+          fa: true,
+          'fa-play': !word.isPlay,
+          'fa-pause': word.isPlay
+        }"
+        (click)="play($event, word)"
+      ></i>
+      <span>{{ word.name }}</span>
+    </div>
+  </li>
+</ul>

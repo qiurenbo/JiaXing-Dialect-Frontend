@@ -1,0 +1,9 @@
+@import "src/styles/mixins";
+:host {
+  @include host-style;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+}

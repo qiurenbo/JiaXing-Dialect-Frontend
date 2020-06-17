@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { SentenceService } from "src/core/sentence.service";
 
 @Component({
   selector: "app-story-list",
@@ -6,7 +7,7 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./story-list.component.scss"],
 })
 export class StoryListComponent implements OnInit {
-  constructor() {}
+  constructor(private sentenceService: SentenceService) {}
 
   ngOnInit() {}
 }

@@ -1,3 +1,15 @@
-<p>
-  sentence-list works!
-</p>
+<ul id="list-container">
+  <li *ngFor="let sentence of sentences">
+    <div class="content">
+      <i
+        [ngClass]="{
+          fa: true,
+          'fa-play': !sentence.isPlay,
+          'fa-pause': sentence.isPlay
+        }"
+        (click)="play($event, sentence)"
+      ></i>
+      <span>{{ sentence.name }}</span>
+    </div>
+  </li>
+</ul>
