@@ -1,44 +1,45 @@
 import { Component, OnInit, ChangeDetectorRef } from "@angular/core";
-import { WordService } from "src/core/word.service";
-import { Howl, Howler } from "howler";
+
+import { Howl } from "howler";
 import { environment } from "src/environments/environment";
+import { SentenceService } from "src/app/core/sentence.service";
 @Component({
-  selector: "app-word-list",
-  templateUrl: "./word-list.component.html",
-  styleUrls: ["./word-list.component.scss"],
+  selector: "app-sentence-list",
+  templateUrl: "./sentence-list.component.html",
+  styleUrls: ["./sentence-list.component.scss"],
 })
-export class WordListComponent implements OnInit {
-  constructor(
-    private wordService: WordService,
-    private cdr: ChangeDetectorRef
-  ) {}
-  words: any[];
-  categories: any[];
+export class SentenceListComponent implements OnInit {
+  sentences: any[] = [];
   hash = {};
   pre = null;
   sound: Howl = null;
+  constructor(
+    private sentenceService: SentenceService,
+    private cdr: ChangeDetectorRef
+  ) {}
 
   initAudioVars() {
     this.pre = null;
     this.sound = null;
-    this.words.forEach((word) => {
-      word.isPlay = false;
-      this.hash[word.id] = word;
+    this.sentences.forEach((sentence) => {
+      sentence.isPlay = false;
+      this.hash[sentence.id] = sentence;
     });
     if (this.sound) {
       this.sound.stop();
     }
   }
+
   ngOnInit() {
-    this.wordService.getWords().subscribe((categories) => {
-      this.categories = categories;
-      this.words = <any[]>categories[0].dialects;
+    this.sentenceService.getSentences().subscribe((categories) => {
+      this.sentences = categories[0].dialects;
       this.initAudioVars();
     });
   }
+
   // Audio Play Part
   play(e, cur) {
-    // if the word is first played or user click the word twice
+    // if the sentence is first played or user click the sentence twice
     if (!this.pre || (this.pre && this.pre.id === cur.id)) {
       this.hash[cur.id].isPlay = !this.hash[cur.id].isPlay;
 
@@ -46,7 +47,7 @@ export class WordListComponent implements OnInit {
         ? this.playAudio(this.hash[cur.id])
         : this.pauseAudio();
     }
-    // if two word not same, then pause previous word and play current word
+    // if two sentence not same, then pause previous sentence and play current sentence
     else {
       this.hash[this.pre.id].isPlay = false;
       this.hash[cur.id].isPlay = true;
@@ -57,9 +58,9 @@ export class WordListComponent implements OnInit {
     this.pre = cur;
   }
 
-  playAudio(word) {
+  playAudio(sentence) {
     this.sound = new Howl({
-      src: [environment.api_url + word.url],
+      src: [environment.api_url + sentence.url],
     });
 
     this.sound.on("end", () => {
@@ -72,10 +73,5 @@ export class WordListComponent implements OnInit {
   }
   pauseAudio() {
     this.sound.stop();
-  }
-
-  changeWords($event, words) {
-    this.words = words;
-    this.initAudioVars();
   }
 }

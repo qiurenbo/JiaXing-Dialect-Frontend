@@ -1,0 +1,16 @@
+@import "src/app/styles/mixins";
+:host {
+  @include host-style;
+  display: flex;
+  direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  margin: auto;
+  width: 90%;
+  height: 80%;
+
+  overflow-y: auto;
+}

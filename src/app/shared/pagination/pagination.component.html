@@ -1,0 +1,15 @@
+<ul>
+  <li (click)="clickPre()">
+    &lt;
+  </li>
+  <li
+    [ngClass]="{ selected: i === currentIdx }"
+    *ngFor="let dummy of [].constructor(pageNumber); let i = index"
+    (click)="selectChange(i)"
+  >
+    {{ i + 1 }}
+  </li>
+  <li (click)="clickNext()">
+    &gt;
+  </li>
+</ul>

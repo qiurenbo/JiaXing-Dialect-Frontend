@@ -1,0 +1,44 @@
+@import "src/app/styles/mixins";
+:host {
+  @include host-style;
+}
+#info {
+  position: absolute;
+  left: 6%;
+  top: 11%;
+  user-select: none;
+}
+
+.content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: -257px;
+  margin-left: -357px;
+}
+
+ul {
+  width: 700px;
+  list-style: none;
+
+  li {
+    border-bottom: solid 1px black;
+    font: 16px/38px "SimHei";
+
+    user-select: none;
+    a {
+      width: 500px;
+      display: inline-block;
+      text-decoration: none;
+      color: rgb(46, 8, 8);
+      &:hover {
+        cursor: pointer;
+      }
+    }
+    span {
+      width: 200px;
+      display: inline-block;
+      text-align: right;
+    }
+  }
+}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { SentenceService } from "src/core/sentence.service";
+import { SentenceService } from "src/app/core/sentence.service";
 
 @Component({
   selector: "app-story-list",

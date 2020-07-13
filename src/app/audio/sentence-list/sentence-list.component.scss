@@ -1,4 +1,4 @@
-@import "src/styles/mixins";
+@import "src/app/styles/mixins";
 :host {
   @include host-style;
 }
@@ -41,7 +41,7 @@
         // https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
         user-select: none;
         color: rgb(35, 24, 21);
-        font: 26px/58px 黑体;
+        font: 20px/68px "SimHei";
       }
     }
   }

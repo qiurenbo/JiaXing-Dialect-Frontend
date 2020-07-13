@@ -1,15 +1,55 @@
-<img src="assets/logo.png" />
-<ul>
-  <li>
-    <a [routerLink]="['/wordList']" routerLinkActive="active">方言词汇库</a>
-  </li>
-  <li>
-    <a [routerLink]="['/sentenceList']" routerLinkActive="active">方言句库</a>
-  </li>
-  <li>
-    <a [routerLink]="['/sentenceList']" routerLinkActive="active">方言故事</a>
-  </li>
-  <li>
-    <a [routerLink]="['/sentenceList']" routerLinkActive="active">方言情景剧</a>
-  </li>
-</ul>
+<img id="info" src="assets/info.png" />
+<img id="logo" src="assets/logo.png" />
+
+<div class="nav">
+  <ul>
+    <li>
+      <a class="icon" [routerLink]="['/overview']" routerLinkActive="active">
+        <img src="assets/pic-qq.png" />
+      </a>
+      <a [routerLink]="['/overview']" routerLinkActive="active">方言概览</a>
+    </li>
+    <li>
+      <a class="icon" [routerLink]="['/related']" routerLinkActive="active">
+        <img src="assets/pic-qq.png" />
+      </a>
+      <a [routerLink]="['/related']" routerLinkActive="active">相关动态</a>
+    </li>
+    <li>
+      <a
+        class="icon"
+        [routerLink]="['/sentenceList']"
+        routerLinkActive="active"
+      >
+        <img src="assets/pic-qq.png" />
+      </a>
+      <a [routerLink]="['/sentenceList']" routerLinkActive="active">方言荟萃</a>
+    </li>
+    <li>
+      <a class="icon" [routerLink]="['/audio']" routerLinkActive="active">
+        <img src="assets/pic-qq.png" />
+      </a>
+      <a [routerLink]="['/audio']" routerLinkActive="active">方言音频</a>
+    </li>
+    <li>
+      <a
+        class="icon"
+        [routerLink]="['/sentenceList']"
+        routerLinkActive="active"
+      >
+        <img src="assets/pic-qq.png" />
+      </a>
+      <a [routerLink]="['/sentenceList']" routerLinkActive="active">方言视频</a>
+    </li>
+    <li>
+      <a
+        class="icon"
+        [routerLink]="['/sentenceList']"
+        routerLinkActive="active"
+      >
+        <img src="assets/pic-qq.png" />
+      </a>
+      <a [routerLink]="['/sentenceList']" routerLinkActive="active">方言研究</a>
+    </li>
+  </ul>
+</div>

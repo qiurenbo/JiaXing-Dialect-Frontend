@@ -1,0 +1,14 @@
+<img id="info" src="assets/info.png" />
+<div class="content" *ngIf="lists.length > 0">
+  <ul>
+    <li *ngFor="let list of lists | slice: start:end">
+      <a [routerLink]="['/related', list.id]">{{ list.title }}</a
+      ><span>{{ list.date }}</span>
+    </li>
+  </ul>
+
+  <app-pagination
+    [pageTotal]="pageTotal"
+    (pageChange)="pageChange($event)"
+  ></app-pagination>
+</div>

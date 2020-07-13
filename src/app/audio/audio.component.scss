@@ -17,11 +17,11 @@
 
 .nav {
   width: 850px;
-  height: 568px;
+  height: 368px;
   overflow: hidden;
   position: absolute;
   left: 50%;
-  top: 25%;
+  top: 35%;
   margin-left: -384px;
 }
 
@@ -45,7 +45,6 @@ ul {
       &.icon {
         height: 160px;
         transition: transform 1s;
-        position: relative;
         &:hover {
           transform: rotate(270deg);
         }
