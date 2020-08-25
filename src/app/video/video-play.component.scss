@@ -1,0 +1,13 @@
+@import "src/app/styles/mixins";
+:host {
+  @include host-style;
+}
+.container {
+  width: 500px;
+  height: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -250px;
+  margin-top: -200px;
+}

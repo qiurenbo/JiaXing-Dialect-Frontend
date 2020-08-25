@@ -8,15 +8,7 @@
 
 <ul id="list-container">
   <li *ngFor="let word of words">
-    <div class="content">
-      <i
-        [ngClass]="{
-          fa: true,
-          'fa-play': !word.isPlay,
-          'fa-pause': word.isPlay
-        }"
-        (click)="play($event, word)"
-      ></i>
+    <div class="content" (click)="navigateToPlay(word.id)">
       <span>{{ word.name }}</span>
     </div>
   </li>

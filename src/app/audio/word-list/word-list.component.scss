@@ -2,6 +2,7 @@
 :host {
   @include host-style;
 }
+
 ul {
   list-style: none;
   margin: 0px;
@@ -45,10 +46,12 @@ ul {
       }
 
       span {
-        // https://developer.mozilla.org/en-US/docs/Web/CSS/user-select
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/user-selectwidth: 100%;
+        text-align: center;
+        font: 26px/58px 黑体;
         user-select: none;
         color: rgb(35, 24, 21);
-        font: 20px/68px "SimHei";
+        font: 26px/58px "SimHei";
       }
     }
   }

@@ -1,0 +1,16 @@
+<div
+  class="container"
+  fxLayout="row layout-wrap"
+  fxLayoutAlign="start start"
+  fxLayoutGap="10px"
+>
+  <div
+    *ngFor="let video of videos"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+    [routerLink]="['/video', 1]"
+  >
+    <img [src]="video.cover" />
+    <span>{{ video.title }}</span>
+  </div>
+</div>

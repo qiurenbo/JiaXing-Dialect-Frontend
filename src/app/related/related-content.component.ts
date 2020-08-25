@@ -1,8 +1,9 @@
 import { Component, OnInit, SecurityContext } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
 import { RelatedContentService } from "../core/related-content.service";
-import { DomSanitizer, SafeHtml } from "@angular/platform-browser";
-import marked from "marked";
+import { DomSanitizer } from "@angular/platform-browser";
+import * as marked from "marked";
+
 @Component({
   selector: "app-related-content",
   templateUrl: "./related-content.component.html",
