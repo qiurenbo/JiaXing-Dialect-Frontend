@@ -10,7 +10,7 @@ export class RelatedContentService {
     return this.http.get(environment.api_url + `/infos/${id}`);
   }
 
-  getRealtedParagraphList(): any {
+  getRelatedParagraphList(): any {
     return this.http.get(environment.api_url + `/infos/list`);
   }
 }

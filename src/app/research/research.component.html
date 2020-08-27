@@ -1,0 +1,15 @@
+<img id="info" src="assets/info.png" />
+<div class="content" *ngIf="lists.length > 0">
+  <ul>
+    <li *ngFor="let list of lists | slice: start:end">
+      <a [href]="url + list.pdf.url">{{ list.title }}</a
+      ><span>{{ list.created_at | date: "yyyy-MM-dd" }}</span>
+    </li>
+  </ul>
+
+  <app-pagination
+    [pageTotal]="pageTotal"
+    [pageSize]="pageSize"
+    (pageChange)="pageChange($event)"
+  ></app-pagination>
+</div>

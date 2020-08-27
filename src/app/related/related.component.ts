@@ -10,17 +10,16 @@ export class RelatedComponent implements OnInit {
   lists: any = [];
   start: number = 0;
   end: number = 12;
+
   pageTotal: number = 28;
   pageSize: number = 12;
 
   constructor(private listService: RelatedContentService) {}
 
   ngOnInit(): void {
-    this.listService.getRealtedParagraphList().subscribe((lists) => {
+    this.listService.getRelatedParagraphList().subscribe((lists) => {
       this.lists = lists;
-      this.pageTotal = 2;
-
-      console.log(this.pageTotal);
+      this.pageTotal = lists.length;
     });
   }
 

@@ -8,6 +8,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { SentenceService } from "./sentence.service";
 import { RelatedContentService } from "./related-content.service";
 import { VideoService } from "./video.service";
+import { ResearchService } from "./research.service";
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, FlexLayoutModule],
@@ -17,6 +18,7 @@ import { VideoService } from "./video.service";
     WordService,
     SentenceService,
     RelatedContentService,
+    ResearchService,
   ],
   exports: [HttpClientModule, FlexLayoutModule],
 })

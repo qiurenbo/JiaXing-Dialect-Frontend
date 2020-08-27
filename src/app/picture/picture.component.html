@@ -1,0 +1,15 @@
+<div
+  class="container"
+  fxLayout="row layout-wrap"
+  fxLayoutAlign="start start"
+  fxLayoutGap="10px"
+>
+  <div
+    *ngFor="let picture of pictures"
+    fxLayout="column"
+    fxLayoutAlign="center center"
+  >
+    <img [src]="picture.cover" />
+    <span>{{ picture.title }}</span>
+  </div>
+</div>

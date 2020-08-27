@@ -16,6 +16,16 @@ const routes: Routes = [
       import("./related/related.module").then((m) => m.RelatedModule),
   },
   {
+    path: "research",
+    loadChildren: () =>
+      import("./research/research.module").then((m) => m.ResearchModule),
+  },
+  {
+    path: "picture",
+    loadChildren: () =>
+      import("./picture/picture.module").then((m) => m.PictureModule),
+  },
+  {
     path: "video",
     loadChildren: () =>
       import("./video/video.module").then((m) => m.VideoModule),

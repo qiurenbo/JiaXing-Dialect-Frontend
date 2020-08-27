@@ -1,15 +1,7 @@
-<ul>
-  <li *ngFor="let category of categories">
-    <button type="button" (click)="changeWords($event, category.dialects)">
-      {{ category.description }}
-    </button>
-  </li>
-</ul>
-
 <ul id="list-container">
   <li *ngFor="let word of words">
     <div class="content" (click)="navigateToPlay(word.id)">
-      <span>{{ word.name }}</span>
+      <span>{{ word.mandarin.name }}</span>
     </div>
   </li>
 </ul>

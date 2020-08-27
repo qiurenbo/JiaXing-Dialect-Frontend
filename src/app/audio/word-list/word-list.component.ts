@@ -17,16 +17,14 @@ export class WordListComponent implements OnInit {
   sound: Howl = null;
 
   ngOnInit() {
-    this.wordService.getWords().subscribe((categories) => {
-      this.categories = categories;
-      this.words = <any[]>categories[0].dialects;
+    this.wordService.getWords().subscribe((words) => {
+      this.words = words;
     });
-  }
-  changeWords($event, words) {
-    this.words = words;
   }
 
   navigateToPlay(id) {
-    this.router.navigateByUrl(`/audio/wordPlaying/${id}`);
+    this.router.navigateByUrl(`/audio/wordPlaying/${id}`, {
+      state: this.words[id],
+    });
   }
 }
