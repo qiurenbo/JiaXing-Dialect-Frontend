@@ -9,6 +9,7 @@ import { SentenceService } from "./sentence.service";
 import { RelatedContentService } from "./related-content.service";
 import { VideoService } from "./video.service";
 import { ResearchService } from "./research.service";
+import { CharacterService } from "./character.service";
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, FlexLayoutModule],
@@ -19,6 +20,7 @@ import { ResearchService } from "./research.service";
     SentenceService,
     RelatedContentService,
     ResearchService,
+    CharacterService,
   ],
   exports: [HttpClientModule, FlexLayoutModule],
 })

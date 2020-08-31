@@ -12,9 +12,7 @@ export class WordService {
     return <Observable<any[]>>this.http.get(environment.api_url + "/words");
   }
 
-  getWordsById(id: string): Observable<any[]> {
-    return <Observable<any[]>>(
-      this.http.get(environment.api_url + `/words/{$id}`)
-    );
+  getWordById(id: string): Observable<any> {
+    return <Observable<any>>this.http.get(environment.api_url + `/words/${id}`);
   }
 }

@@ -1,0 +1,59 @@
+@import "src/app/styles/mixins";
+:host {
+  @include host-style;
+}
+
+ul {
+  list-style: none;
+  margin: 0px;
+  li {
+    float: left;
+  }
+}
+
+#list-container {
+  // horizontally and vertically center
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 70%;
+  height: 70%;
+  padding: 0;
+  margin: auto;
+  overflow-y: auto;
+
+  li {
+    overflow: hidden;
+    width: 220px;
+    height: 58px;
+    float: left;
+    margin: 0px 10px 10px;
+    border: 1px solid #bebebe;
+    border-radius: 10px;
+
+    &:hover {
+      border: 1px solid #470b02;
+    }
+
+    .content {
+      width: 80%;
+      margin: auto;
+
+      i {
+        width: 15px;
+        margin-right: 2px;
+      }
+
+      span {
+        // https://developer.mozilla.org/en-US/docs/Web/CSS/user-selectwidth: 100%;
+        text-align: center;
+        font: 26px/58px 黑体;
+        user-select: none;
+        color: rgb(35, 24, 21);
+        font: 26px/58px "SimHei";
+      }
+    }
+  }
+}

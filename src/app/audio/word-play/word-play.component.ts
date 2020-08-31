@@ -1,141 +1,43 @@
 import { Component, OnInit } from "@angular/core";
 import { Howl } from "howler";
 import Psittacus from "psittacus";
+import { WordService } from "src/app/core/word.service";
+import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-word-play",
   templateUrl: "./word-play.component.html",
   styleUrls: ["./word-play.component.scss"],
 })
 export class WordPlayComponent implements OnInit {
-  constructor() {}
+  constructor(
+    private wordService: WordService,
+    private route: ActivatedRoute
+  ) {}
   playId = -1;
+  status = "";
+  word: { audio: any } = null;
   sound: Howl;
   psittacus = new Psittacus();
-  status = "";
-  items = [
-    {
-      region: "嘉兴",
-      duration: "00:01",
-      sex: "男",
-      age: "中年",
-      name: "陈曦",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "嘉兴",
-      duration: "00:03",
-      sex: "女",
-      age: "中年",
-      name: "蒋丽",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "嘉兴",
-      duration: "00:01",
-      sex: "男",
-      age: "少年",
-      name: "王璇",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "平湖",
-      duration: "00:01",
-      sex: "男",
-      age: "中年",
-      name: "陈曦",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "平湖",
-      duration: "00:01",
-      sex: "女",
-      age: "中年",
-      name: "王建国",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "海宁",
-      duration: "00:01",
-      sex: "男",
-      age: "中年",
-      name: "王璇",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "海宁",
-      duration: "00:02",
-      sex: "男",
-      age: "中年",
-      name: "陈一",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "海盐",
-      duration: "00:01",
-      sex: "女",
-      age: "中年",
-      name: "蒋丽",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "海盐",
-      duration: "00:01",
-      sex: "男",
-      age: "中年",
-      name: "王璇",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "桐乡",
-      duration: "00:03",
-      sex: "女",
-      age: "中年",
-      name: "陈曦",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "桐乡",
-      duration: "00:01",
-      sex: "男",
-      age: "中年",
-      name: "蒋丽",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "嘉善",
-      duration: "00:02",
-      sex: "女",
-      age: "中年",
-      name: "王璇",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "嘉善",
-      duration: "00:01",
-      sex: "男",
-      age: "中年",
-      name: "陈曦",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-    {
-      region: "普通话",
-      duration: "00:01",
-      sex: "男",
-      age: "中年",
-      name: "陈曦",
-      url: "/uploads/呆子_1bd479940c.mp3",
-    },
-  ];
-  ngOnInit() {}
 
-  onPlay(id) {
+  ngOnInit() {
+    const id = this.route.snapshot.paramMap.get("id");
+    console.log(id);
+    this.wordService.getWordById(id).subscribe((word: any) => {
+      console.log(word);
+      this.word = word;
+    });
+  }
+
+  onPlay(id: number) {
     this.playId = this.playId === id ? -1 : id;
+
     if (this.sound) {
       this.sound.stop();
     }
+
     this.sound = new Howl({
       // src: [this.items[id].url],
-      src: ["http://localhost:1337/uploads/呆子_1bd479940c.mp3"],
+      src: [this.word.audio[id].audio.url],
     });
 
     this.sound.play();
@@ -149,6 +51,7 @@ export class WordPlayComponent implements OnInit {
       this.status = "评分:85";
     }, 3000);
   }
+
   onExport() {
     this.psittacus.export("wav", (blob) => {
       const downloadEl = document.createElement("a");

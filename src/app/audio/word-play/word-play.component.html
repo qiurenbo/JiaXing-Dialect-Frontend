@@ -7,15 +7,14 @@
           <div class="wp">&nbsp;</div>
         </th>
         <th><div class="wp">区域</div></th>
-        <th><div class="wp">时长</div></th>
         <th><div class="wp">朗读者</div></th>
         <th><div class="wp">性别</div></th>
         <th><div class="wp">年龄</div></th>
         <th><div class="wp">跟读</div></th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let item of items; let i = index">
+    <tbody *ngIf="word != null">
+      <tr *ngFor="let item of word.audio; let i = index">
         <td>
           <span class="num">{{ i + 1 }}</span
           ><span
@@ -24,7 +23,6 @@
           ></span>
         </td>
         <td>{{ item.region }}</td>
-        <td>{{ item.duration }}</td>
         <td>{{ item.name }}</td>
         <td>{{ item.sex }}</td>
         <td>{{ item.age }}</td>

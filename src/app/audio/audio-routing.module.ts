@@ -1,13 +1,19 @@
 import { Routes, RouterModule } from "@angular/router";
 import { NgModule } from "@angular/core";
-import { WordListComponent } from "./word-list/word-list.component";
+import { WordComponent } from "./word/word.component";
 import { AudioComponent } from "./audio.component";
 import { WordPlayComponent } from "./word-play/word-play.component";
 
 const routes: Routes = [
   { path: "", component: AudioComponent, pathMatch: "full" },
-  { path: "wordList", component: WordListComponent },
-  { path: "wordPlaying/:id", component: WordPlayComponent },
+  {
+    path: "wordList",
+    component: WordComponent,
+  },
+  {
+    path: "wordList/play/:id",
+    component: WordPlayComponent,
+  },
 ];
 
 @NgModule({
