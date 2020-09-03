@@ -3,9 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { Observable } from "rxjs";
 
-@Injectable({
-  providedIn: "root",
-})
+@Injectable()
 export class CharacterService {
   constructor(private http: HttpClient) {}
 
@@ -15,9 +13,9 @@ export class CharacterService {
     );
   }
 
-  getCharactersById(id: string): Observable<any[]> {
+  getCharacterById(id: string): Observable<any[]> {
     return <Observable<any[]>>(
-      this.http.get(environment.api_url + `/characters/{$id}`)
+      this.http.get(environment.api_url + `/characters/${id}`)
     );
   }
 }

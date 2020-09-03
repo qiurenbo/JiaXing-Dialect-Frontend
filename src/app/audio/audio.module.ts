@@ -6,6 +6,9 @@ import { StoryListComponent } from "./story-list/story-list.component";
 import { SentenceListComponent } from "./sentence-list/sentence-list.component";
 import { AudioComponent } from "./audio.component";
 import { WordPlayComponent } from "./word-play/word-play.component";
+import { CharacterComponent } from "./character/character.component";
+import { SharedModule } from "../shared/shared.module";
+import { CharacterPlayComponent } from "./character-play/character-play.component";
 
 @NgModule({
   declarations: [
@@ -14,8 +17,10 @@ import { WordPlayComponent } from "./word-play/word-play.component";
     StoryListComponent,
     SentenceListComponent,
     WordPlayComponent,
+    CharacterComponent,
+    CharacterPlayComponent,
   ],
-  imports: [CommonModule, AudioRoutingModule],
+  imports: [CommonModule, AudioRoutingModule, SharedModule],
   exports: [],
   providers: [],
 })

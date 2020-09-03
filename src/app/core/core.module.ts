@@ -10,6 +10,7 @@ import { RelatedContentService } from "./related-content.service";
 import { VideoService } from "./video.service";
 import { ResearchService } from "./research.service";
 import { CharacterService } from "./character.service";
+import { ASRService } from "./asr.service";
 
 @NgModule({
   imports: [CommonModule, HttpClientModule, FlexLayoutModule],
@@ -21,6 +22,7 @@ import { CharacterService } from "./character.service";
     RelatedContentService,
     ResearchService,
     CharacterService,
+    ASRService,
   ],
   exports: [HttpClientModule, FlexLayoutModule],
 })

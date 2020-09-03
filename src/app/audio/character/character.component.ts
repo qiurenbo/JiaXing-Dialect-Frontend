@@ -1,16 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 
 import { CharacterService } from "src/app/core/character.service";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 @Component({
-  selector: "app-character-list",
-  templateUrl: "./character-list.component.html",
-  styleUrls: ["./character-list.component.scss"],
+  selector: "app-character",
+  templateUrl: "./character.component.html",
+  styleUrls: ["./character.component.scss"],
 })
 export class CharacterComponent implements OnInit {
   constructor(
     private characterService: CharacterService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) {}
   characters: any[];
 
@@ -24,8 +25,8 @@ export class CharacterComponent implements OnInit {
   }
 
   navigateToPlay(id) {
-    this.router.navigateByUrl(`./play/${id}`, {
-      state: this.characters[id],
+    this.router.navigate([`./play/${id}`], {
+      relativeTo: this.route,
     });
   }
 }

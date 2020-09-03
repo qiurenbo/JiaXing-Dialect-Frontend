@@ -1,8 +1,7 @@
-<p>character works!</p>
 <ul id="list-container">
   <li *ngFor="let character of characters">
     <div class="content" (click)="navigateToPlay(character.id)">
-      <span>{{ character.mandarin.name }}</span>
+      <span>{{ character.name }}</span>
     </div>
   </li>
 </ul>

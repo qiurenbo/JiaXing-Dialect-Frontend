@@ -1,30 +1,29 @@
 import { Component, OnInit } from "@angular/core";
 import Psittacus from "psittacus";
 import { Howl } from "howler";
-import { WordService } from "src/app/core/word.service";
+import { CharacterService } from "src/app/core/character.service";
 import { ActivatedRoute } from "@angular/router";
+
 @Component({
-  selector: "app-word-play",
-  templateUrl: "./word-play.component.html",
-  styleUrls: ["./word-play.component.scss"],
+  selector: "app-character-play",
+  templateUrl: "./character-play.component.html",
+  styleUrls: ["./character-play.component.scss"],
 })
-export class WordPlayComponent implements OnInit {
+export class CharacterPlayComponent implements OnInit {
   constructor(
-    private wordService: WordService,
+    private characterService: CharacterService,
     private route: ActivatedRoute
   ) {}
   playId = -1;
   status = "";
-  word: { audio: any } = null;
+  character: any;
   sound: Howl;
   psittacus = new Psittacus();
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
-    console.log(id);
-    this.wordService.getWordById(id).subscribe((word: any) => {
-      console.log(word);
-      this.word = word;
+    this.characterService.getCharacterById(id).subscribe((character: any) => {
+      this.character = character;
     });
   }
 
@@ -36,8 +35,7 @@ export class WordPlayComponent implements OnInit {
     }
 
     this.sound = new Howl({
-      // src: [this.items[id].url],
-      src: [this.word.audio[id].audio.url],
+      src: [this.character.audios[id].audio.url],
     });
 
     this.sound.play();

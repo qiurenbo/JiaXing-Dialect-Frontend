@@ -1,0 +1,36 @@
+<div class="main" *ngIf="character">
+  <div class="wd">{{ this.character.name }} &nbsp; {{ this.status }}</div>
+  <table class="m-table">
+    <thead>
+      <tr class="title">
+        <th class="first w1">
+          <div class="wp">&nbsp;</div>
+        </th>
+        <th><div class="wp">区域</div></th>
+        <th><div class="wp">朗读者</div></th>
+        <th><div class="wp">性别</div></th>
+        <th><div class="wp">年龄</div></th>
+        <th><div class="wp">跟读</div></th>
+      </tr>
+    </thead>
+    <tbody *ngIf="character != null">
+      <tr *ngFor="let item of character.audios; let i = index">
+        <td>
+          <span class="num">{{ i + 1 }}</span
+          ><span
+            (click)="onPlay(i)"
+            [ngClass]="[playId === i ? 'pause' : 'ply']"
+          ></span>
+        </td>
+        <td>{{ item.region }}</td>
+        <td>{{ item.name }}</td>
+        <td>{{ item.sex }}</td>
+        <td>{{ item.age }}</td>
+        <td>
+          <button (click)="onRecord()">开始</button>
+          <button (click)="onExport()">导出</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

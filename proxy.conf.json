@@ -2,5 +2,9 @@
   "/uploads": {
     "target": "http://localhost:1337",
     "secure": false
+  },
+  "/characters": {
+    "target": "http://localhost:1337",
+    "secure": false
   }
 }
