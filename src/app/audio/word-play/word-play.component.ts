@@ -35,8 +35,8 @@ export class WordPlayComponent implements OnInit {
       this.sound.stop();
     }
 
+    // src: [this.items[id].url],
     this.sound = new Howl({
-      // src: [this.items[id].url],
       src: [this.word.audio[id].audio.url],
     });
 

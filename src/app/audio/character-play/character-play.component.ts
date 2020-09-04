@@ -1,8 +1,10 @@
 import { Component, OnInit } from "@angular/core";
-import Psittacus from "psittacus";
+import Recorder from "js-audio-recorder";
+
 import { Howl } from "howler";
 import { CharacterService } from "src/app/core/character.service";
 import { ActivatedRoute } from "@angular/router";
+import { ASRService } from "src/app/core/asr.service";
 
 @Component({
   selector: "app-character-play",
@@ -12,14 +14,21 @@ import { ActivatedRoute } from "@angular/router";
 export class CharacterPlayComponent implements OnInit {
   constructor(
     private characterService: CharacterService,
+    private asrService: ASRService,
     private route: ActivatedRoute
   ) {}
+
+  // indicate to play id
   playId = -1;
+
+  // indicate to analyze progress
   status = "";
+
+  // character audio list
   character: any;
   sound: Howl;
-  psittacus = new Psittacus();
-
+  recorder = new Recorder({ sampleRate: 16000 });
+  translate: string = "";
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
     this.characterService.getCharacterById(id).subscribe((character: any) => {
@@ -42,23 +51,30 @@ export class CharacterPlayComponent implements OnInit {
   }
 
   onRecord() {
-    this.psittacus.start();
+    this.recorder.start();
     this.status = "录音中..";
+    this.translate = "";
     setTimeout(() => {
-      this.psittacus.stop();
-      this.status = "评分:85";
+      this.recorder.stop();
+      this.status = "";
     }, 3000);
   }
 
-  onExport() {
-    this.psittacus.export("wav", (blob) => {
-      const downloadEl = document.createElement("a");
-      downloadEl.innerHTML = "download";
-      downloadEl.download = "audio.wav";
-      downloadEl.href = URL.createObjectURL(blob);
-      document.body.appendChild(downloadEl);
-      downloadEl.click();
-      document.body.removeChild(downloadEl);
+  onRecordPlay() {
+    this.recorder.play();
+  }
+  onRecordDownload() {
+    const downloadEl = document.createElement("a");
+    downloadEl.innerHTML = "download";
+    downloadEl.download = "audio.wav";
+    downloadEl.href = URL.createObjectURL(this.recorder.getWAVBlob());
+    document.body.appendChild(downloadEl);
+    downloadEl.click();
+    document.body.removeChild(downloadEl);
+  }
+  onAnalyze() {
+    this.asrService.asr(this.recorder.getWAVBlob()).subscribe((msg) => {
+      this.translate = msg.result[0];
     });
   }
 }

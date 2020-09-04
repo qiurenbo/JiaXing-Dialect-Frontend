@@ -6,5 +6,15 @@
   "/characters": {
     "target": "http://localhost:1337",
     "secure": false
+  },
+  "/token": {
+    "target": "https://aip.baidubce.com/oauth/2.0",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/asr": {
+    "target": "https://vop.baidu.com/pro_api",
+    "secure": false,
+    "changeOrigin": true
   }
 }
