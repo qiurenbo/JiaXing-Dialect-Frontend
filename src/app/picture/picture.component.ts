@@ -1,4 +1,11 @@
-import { Component, OnInit } from "@angular/core";
+import {
+  Component,
+  OnInit,
+  ComponentFactoryResolver,
+  ViewContainerRef,
+} from "@angular/core";
+import { PictureService } from "../core/picture.service";
+import { ZoomComponent } from "../shared/zoom/zoom.component";
 
 @Component({
   selector: "app-picture",
@@ -8,15 +15,25 @@ import { Component, OnInit } from "@angular/core";
 export class PictureComponent implements OnInit {
   pictures = [];
 
-  constructor() {}
+  constructor(
+    private pictureService: PictureService,
+    private resolver: ComponentFactoryResolver,
+    private vc: ViewContainerRef
+  ) {}
 
   ngOnInit() {
-    for (let i = 0; i < 500; i++) {
-      this.pictures.push({
-        id: i + 1,
-        cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-        title: "测试图片",
-      });
-    }
+    this.pictureService.getPictures().subscribe((pictures) => {
+      this.pictures = pictures;
+    });
+  }
+
+  zoom(url: string) {
+    const factory: any = this.resolver.resolveComponentFactory(ZoomComponent);
+    const ref = this.vc.createComponent<ZoomComponent>(factory);
+    ref.instance.url = url;
+    ref.instance.close.subscribe((msg) => {
+      console.log(msg);
+      ref.destroy();
+    });
   }
 }

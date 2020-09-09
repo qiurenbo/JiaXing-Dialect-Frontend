@@ -3,13 +3,15 @@
   fxLayout="row layout-wrap"
   fxLayoutAlign="start start"
   fxLayoutGap="10px"
+  *ngIf="pictures"
 >
   <div
     *ngFor="let picture of pictures"
     fxLayout="column"
     fxLayoutAlign="center center"
+    (click)="zoom(picture.picture.formats.medium.url)"
   >
-    <img [src]="picture.cover" />
+    <img [src]="picture.picture.formats.thumbnail.url" />
     <span>{{ picture.title }}</span>
   </div>
 </div>

@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { switchMap } from "rxjs/operators";
+import { switchMap, switchMapTo } from "rxjs/operators";
 import { Observable } from "rxjs";
 const client_id = "jq44qmDfD2FvVk4XpLNH2M84";
 const client_secret = "Lp9Zpo0PzZT9rUoTSmB3WUExsjnoGj0Z";
@@ -17,7 +17,14 @@ export class ASRService {
     );
   }
 
+  asrByUrl(url: string): Observable<any> {
+    return this.http
+      .get(url, { responseType: "arraybuffer" })
+      .pipe(switchMap((audio) => this.asr(audio)));
+  }
+
   asr(audio: any): Observable<any> {
+    console.log(this.token);
     if (!this.token) {
       return this.auth().pipe(
         switchMap((resp: any) => {
@@ -38,5 +45,15 @@ export class ASRService {
       audio,
       { headers }
     );
+  }
+
+  calcScore(origin: string, target: string) {
+    let sum = 0;
+    console.log(origin, target);
+    for (let i = 0; i < origin.length; i++) {
+      if (origin.charAt(i) === target.charAt(i)) sum += 1;
+    }
+
+    return (sum / origin.length) * 100;
   }
 }

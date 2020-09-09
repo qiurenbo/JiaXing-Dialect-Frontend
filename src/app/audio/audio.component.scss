@@ -2,6 +2,7 @@
 :host {
   @include host-style;
 }
+
 #info {
   position: absolute;
   left: 6%;
@@ -41,9 +42,10 @@ ul {
       font: 20px/68px "SimHei";
       color: #2e2e2e;
       text-align: center;
+      margin: auto;
 
       &.icon {
-        height: 160px;
+        height: 64px;
         transition: transform 1s;
         &:hover {
           transform: rotate(270deg);

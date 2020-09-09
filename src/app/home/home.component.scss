@@ -33,7 +33,7 @@ ul {
     overflow: visible;
     float: left;
     margin-right: 100px;
-
+    margin-top: 50px;
     a {
       display: block;
       text-decoration: none;
@@ -41,9 +41,10 @@ ul {
       font: 20px/68px "SimHei";
       color: #2e2e2e;
       text-align: center;
-
+      margin: auto;
       &.icon {
-        height: 160px;
+        height: 64px;
+        width: 64px;
         transition: transform 1s;
         position: relative;
         &:hover {

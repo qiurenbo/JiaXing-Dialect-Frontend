@@ -1,6 +1,7 @@
 <div class="main" *ngIf="character">
   <div class="wd">
-    {{ this.character.name }} &nbsp; {{ this.status }} {{ this.translate }}
+    {{ this.character.name }} &nbsp; {{ this.status }}
+    {{ this.tip }}
   </div>
   <table class="m-table">
     <thead>
@@ -29,10 +30,10 @@
         <td>{{ item.sex }}</td>
         <td>{{ item.age }}</td>
         <td>
-          <button (click)="onRecord()">开始</button>
-          <button (click)="onRecordPlay()">播放</button>
-          <button (click)="onRecordDownload()">下载</button>
-          <button (click)="onAnalyze()">分析</button>
+          <button (click)="onRecord(i)">开始</button>
+          <button (click)="onRecordPlay(i)">播放</button>
+          <button (click)="onRecordDownload(i)">下载</button>
+          <button (click)="onAnalyze(i)">读音判别</button>
         </td>
       </tr>
     </tbody>

@@ -16,5 +16,25 @@
     "target": "https://vop.baidu.com/pro_api",
     "secure": false,
     "changeOrigin": true
+  },
+  "/infos/list": {
+    "target": "http://localhost:1337",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/infos": {
+    "target": "http://localhost:1337",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/researches": {
+    "target": "http://localhost:1337",
+    "secure": false,
+    "changeOrigin": true
+  },
+  "/pictures": {
+    "target": "http://localhost:1337",
+    "secure": false,
+    "changeOrigin": true
   }
 }
