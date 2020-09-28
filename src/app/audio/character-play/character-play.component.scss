@@ -1,14 +1,18 @@
 @import "src/app/styles/mixins";
 :host {
   @include host-style;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .main {
-  width: 1000px;
-  height: auto;
-  position: relative;
-  left: 200px;
-  top: 20px;
+  width: 60%;
+  height: 60%;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
 
   .wd {
     width: 100%;
@@ -72,6 +76,10 @@
       padding: 6px 10px;
       line-height: 18px;
       text-align: left;
+
+      button {
+        margin-right: 10px;
+      }
     }
     th {
       height: 38px;

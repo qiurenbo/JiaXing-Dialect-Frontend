@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { VideoService } from "../core/video.service";
 
 @Component({
   selector: "app-video",
@@ -6,54 +7,12 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./video.component.scss"],
 })
 export class VideoComponent implements OnInit {
-  constructor() {}
+  constructor(private videoService: VideoService) {}
 
-  videos = [
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-    {
-      id: "1",
-      cover: "http://localhost:1337/uploads/thumbnail_bg_b70c661d01.jpeg",
-      title: "测试视频",
-    },
-  ];
-  ngOnInit(): void {}
+  videos: any[];
+  ngOnInit(): void {
+    this.videoService.getVideos().subscribe((videos) => {
+      this.videos = videos;
+    });
+  }
 }

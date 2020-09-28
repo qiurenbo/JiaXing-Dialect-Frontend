@@ -11,4 +11,8 @@ export class VideoService {
       this.http.get(environment.api_url + `/videos/${id}`)
     );
   }
+
+  getVideos(): Observable<any> {
+    return <Observable<any>>this.http.get(environment.api_url + `/videos`);
+  }
 }
