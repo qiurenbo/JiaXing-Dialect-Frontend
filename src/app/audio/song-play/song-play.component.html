@@ -1,7 +1,6 @@
-<div class="main" *ngIf="word">
+<div class="main" *ngIf="song">
   <div class="wd">
-    {{ this.word.name }} &nbsp; {{ this.status }}
-    {{ this.tip }}
+    {{ this.song.desc }}
   </div>
   <table class="m-table">
     <thead>
@@ -13,25 +12,21 @@
         <th><div class="wp">朗读者</div></th>
         <th><div class="wp">性别</div></th>
         <th><div class="wp">年龄</div></th>
-        <th><div class="wp">跟读</div></th>
       </tr>
     </thead>
-    <tbody *ngIf="word != null">
-      <tr *ngFor="let item of word.audios; let i = index">
+    <tbody *ngIf="song != null">
+      <tr *ngFor="let item of song.audios; let i = index">
         <td>
           <span class="num">{{ i + 1 }}</span
-          ><span (click)="onPlay(i)" class="ply"></span>
+          ><span
+            (click)="onPlay(i)"
+            [ngClass]="[playId === i ? 'pause' : 'ply']"
+          ></span>
         </td>
         <td>{{ item.region }}</td>
         <td>{{ item.author }}</td>
         <td>{{ item.sex }}</td>
         <td>{{ item.age }}</td>
-        <td>
-          <button (click)="onRecord(i)">开始</button>
-          <button (click)="onRecordPlay(i)">播放</button>
-          <button (click)="onRecordDownload(i)">下载</button>
-          <button (click)="onAnalyze(i)">读音判别</button>
-        </td>
       </tr>
     </tbody>
   </table>

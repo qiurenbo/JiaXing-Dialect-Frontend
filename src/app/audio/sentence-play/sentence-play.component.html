@@ -1,6 +1,6 @@
-<div class="main" *ngIf="character">
+<div class="main" *ngIf="sentence">
   <div class="wd">
-    {{ this.character.name }} &nbsp; {{ this.status }}
+    {{ this.sentence.name }} &nbsp; {{ this.status }}
     {{ this.tip }}
   </div>
   <table class="m-table">
@@ -13,11 +13,10 @@
         <th><div class="wp">朗读者</div></th>
         <th><div class="wp">性别</div></th>
         <th><div class="wp">年龄</div></th>
-        <th><div class="wp">跟读</div></th>
       </tr>
     </thead>
-    <tbody *ngIf="character != null">
-      <tr *ngFor="let item of character.audios; let i = index">
+    <tbody *ngIf="sentence != null">
+      <tr *ngFor="let item of sentence.audios; let i = index">
         <td>
           <span class="num">{{ i + 1 }}</span
           ><span
@@ -26,15 +25,9 @@
           ></span>
         </td>
         <td>{{ item.region }}</td>
-        <td>{{ item.name }}</td>
+        <td>{{ item.author }}</td>
         <td>{{ item.sex }}</td>
         <td>{{ item.age }}</td>
-        <td>
-          <button (click)="onRecord(i)">开始</button>
-          <button (click)="onRecordPlay(i)">播放</button>
-          <button (click)="onRecordDownload(i)">下载</button>
-          <button (click)="onAnalyze(i)">读音判别</button>
-        </td>
       </tr>
     </tbody>
   </table>

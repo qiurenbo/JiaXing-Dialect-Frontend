@@ -1,0 +1,7 @@
+<ul id="list-container">
+  <li *ngFor="let sentence of sentences">
+    <div class="content" (click)="navigateToPlay(sentence.id)">
+      <span>{{ sentence.name }}</span>
+    </div>
+  </li>
+</ul>

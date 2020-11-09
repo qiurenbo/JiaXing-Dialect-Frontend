@@ -26,3 +26,166 @@
   background-size: cover;
   min-width: 1080;
 }
+
+@mixin audio-play-style {
+  .main {
+    width: 60%;
+    height: 60%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+
+    .wd {
+      width: 100%;
+      height: 168px;
+      font: 110px/168px "楷体";
+      overflow-y: scroll;
+      color: #052f40;
+    }
+
+    .m-table {
+      width: 100%;
+      border-top: 2px solid #c20c0c;
+      border-collapse: collapse;
+      border-spacing: 0;
+
+      border: 1px solid #d9d9d9;
+      border-top-color: rgb(217, 217, 217);
+      border-top-style: solid;
+      border-top-width: 1px;
+      border-right-color: rgb(217, 217, 217);
+      border-right-style: solid;
+      border-right-width: 1px;
+      border-bottom-color: rgb(217, 217, 217);
+      border-bottom-style: solid;
+      border-bottom-width: 1px;
+      border-left-color: rgb(217, 217, 217);
+      border-left-style: solid;
+      border-left-width: 1px;
+      border-image-source: initial;
+      border-image-slice: initial;
+      border-image-width: initial;
+      border-image-outset: initial;
+      border-image-repeat: initial;
+
+      .title {
+        border-top: 2px solid #c20c0c;
+      }
+      .w1 {
+        width: 74px;
+      }
+
+      .ply {
+        width: 17px;
+        height: 17px;
+        cursor: pointer;
+        background: url("src/assets/table.png") -20px -128px no-repeat;
+        float: right;
+      }
+
+      // .pause {
+      //   width: 17px;
+      //   height: 17px;
+      //   cursor: pointer;
+      //   background: url("src/assets/table.png") -20px -128px no-repeat;
+      //   float: right;
+      // }
+
+      td {
+        text-align: left;
+        font-size: 18px;
+
+        padding: 6px 10px;
+        line-height: 22px;
+        text-align: left;
+
+        button {
+          margin-right: 10px;
+        }
+      }
+      th {
+        height: 38px;
+        background-color: #f7f7f7;
+        background-position: 0 0;
+        background-repeat: repeat-x;
+        vertical-align: top;
+
+        text-align: left;
+        font-weight: normal;
+        color: #666;
+        padding: 0;
+        margin: 0;
+
+        background: url("src/assets/table.png") 0 0;
+
+        &.first .wp {
+          background: none;
+        }
+
+        .wp {
+          height: 18px;
+          line-height: 18px;
+          padding: 8px 10px;
+          background: url("src/assets/table.png") 0 -56px no-repeat;
+        }
+      }
+    }
+  }
+}
+
+@mixin audio-list-style {
+  ul {
+    list-style: none;
+    margin: 0px;
+    li {
+      float: left;
+    }
+  }
+
+  #list-container {
+    // horizontally and vertically center
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 70%;
+    height: 70%;
+    padding: 0;
+    margin: auto;
+    overflow-y: auto;
+    li {
+      overflow: hidden;
+      width: 220px;
+      height: 58px;
+      float: left;
+      margin: 0px 10px 10px;
+      border: 1px solid #bebebe;
+      border-radius: 10px;
+
+      &:hover {
+        border: 1px solid #470b02;
+      }
+
+      .content {
+        width: 80%;
+        margin: auto;
+
+        i {
+          width: 15px;
+          margin-right: 2px;
+        }
+
+        span {
+          // https://developer.mozilla.org/en-US/docs/Web/CSS/user-selectwidth: 100%;
+          text-align: center;
+          font: 26px/58px 黑体;
+          user-select: none;
+          color: rgb(35, 24, 21);
+          font: 26px/58px "SimHei";
+        }
+      }
+    }
+  }
+}

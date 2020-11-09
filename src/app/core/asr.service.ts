@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { switchMap, switchMapTo } from "rxjs/operators";
+import { switchMap } from "rxjs/operators";
 import { Observable } from "rxjs";
 const client_id = "jq44qmDfD2FvVk4XpLNH2M84";
 const client_secret = "Lp9Zpo0PzZT9rUoTSmB3WUExsjnoGj0Z";
@@ -24,7 +24,6 @@ export class ASRService {
   }
 
   asr(audio: any): Observable<any> {
-    console.log(this.token);
     if (!this.token) {
       return this.auth().pipe(
         switchMap((resp: any) => {

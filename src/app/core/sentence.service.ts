@@ -9,4 +9,10 @@ export class SentenceService {
   getSentences(): Observable<any[]> {
     return <Observable<any[]>>this.http.get(environment.api_url + "/sentences");
   }
+
+  getSentenceById(id: string): Observable<any> {
+    return <Observable<any>>(
+      this.http.get(environment.api_url + `/sentences/${id}`)
+    );
+  }
 }
