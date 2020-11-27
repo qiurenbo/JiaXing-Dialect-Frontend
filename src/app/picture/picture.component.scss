@@ -2,13 +2,25 @@
 :host {
   @include host-style;
 }
-.container {
+.gallery {
   width: 1300px;
   height: 600px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  margin-left: -600px;
-  margin-top: -300px;
   overflow-y: auto;
+}
+
+.img-container {
+  border: 1px solid black;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  width: 280px;
+  height: 220px;
+}
+
+.container {
+  width: 1400px;
+  height: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
 }

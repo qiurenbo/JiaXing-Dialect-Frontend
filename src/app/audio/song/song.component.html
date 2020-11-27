@@ -1,3 +1,10 @@
+<div class="search">
+  <input
+    [(ngModel)]="searchKey"
+    (keypress)="$event.which === 13 ? search() : 0"
+  />
+  <button (click)="search()">搜索</button>
+</div>
 <ul id="list-container">
   <li *ngFor="let song of songs">
     <div class="content" (click)="navigateToPlay(song.id)">

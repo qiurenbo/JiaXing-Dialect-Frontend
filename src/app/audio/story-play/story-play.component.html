@@ -1,7 +1,7 @@
-<div class="main" *ngIf="sentence">
+<div class="main" *ngIf="story">
   <div class="wd">
-    {{ this.sentence.name }} &nbsp; {{ this.status }}
-    {{ this.tip }}
+    {{ this.story.name }} <br />
+    {{ this.story.content }}
   </div>
   <table class="m-table">
     <thead>
@@ -15,8 +15,8 @@
         <th><div class="wp">年龄</div></th>
       </tr>
     </thead>
-    <tbody *ngIf="sentence != null">
-      <tr *ngFor="let item of sentence.audios; let i = index">
+    <tbody *ngIf="story != null">
+      <tr *ngFor="let item of story.audios; let i = index">
         <td>
           <span class="num">{{ i + 1 }}</span
           ><span (click)="onPlay(i)" class="ply"></span>

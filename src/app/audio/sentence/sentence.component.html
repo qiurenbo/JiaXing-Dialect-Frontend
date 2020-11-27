@@ -1,7 +1,15 @@
-<ul id="list-container">
-  <li *ngFor="let sentence of sentences">
-    <div class="content" (click)="navigateToPlay(sentence.id)">
-      <span>{{ sentence.name }}</span>
-    </div>
-  </li>
-</ul>
+<div class="container">
+  <div id="list-container">
+    <li *ngFor="let sentence of sentences">
+      <div class="content" (click)="navigateToPlay(sentence.id)">
+        <span>{{ sentence.name }}</span>
+      </div>
+    </li>
+  </div>
+  <app-pagination
+    [pageTotal]="pageTotal"
+    [pageSize]="pageSize"
+    (pageChange)="pageChange($event)"
+    [currentIdx]="index"
+  ></app-pagination>
+</div>

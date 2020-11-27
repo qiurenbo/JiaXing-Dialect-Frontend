@@ -7,6 +7,8 @@ import { SentenceComponent } from "./sentence/sentence.component";
 import { SentencePlayComponent } from "./sentence-play/sentence-play.component";
 import { SongComponent } from "./song/song.component";
 import { SongPlayComponent } from "./song-play/song-play.component";
+import { StoryComponent } from "./story/story.component";
+import { StoryPlayComponent } from "./story-play/story-play.component";
 
 const routes: Routes = [
   { path: "", component: AudioComponent, pathMatch: "full" },
@@ -34,6 +36,14 @@ const routes: Routes = [
   {
     path: "songList/play/:id",
     component: SongPlayComponent,
+  },
+  {
+    path: "storyList",
+    component: StoryComponent,
+  },
+  {
+    path: "storyList/play/:id",
+    component: StoryPlayComponent,
   },
 ];
 

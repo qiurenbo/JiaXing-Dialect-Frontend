@@ -49,7 +49,9 @@ export class ASRService {
   calcScore(origin: string, target: string) {
     let sum = 0;
     console.log(origin, target);
-    for (let i = 0; i < origin.length; i++) {
+
+    // omit last .
+    for (let i = 0; i < origin.length - 1; i++) {
       if (origin.charAt(i) === target.charAt(i)) sum += 1;
     }
 

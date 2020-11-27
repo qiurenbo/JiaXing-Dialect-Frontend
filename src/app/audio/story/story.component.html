@@ -1,0 +1,7 @@
+<ul id="list-container">
+  <li *ngFor="let story of stories">
+    <div class="content" (click)="navigateToPlay(story.id)">
+      <span>{{ story.name }}</span>
+    </div>
+  </li>
+</ul>

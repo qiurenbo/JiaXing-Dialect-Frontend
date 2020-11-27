@@ -1,44 +1,52 @@
 <img id="info" src="assets/info.png" />
 <img id="logo" src="assets/logo.png" />
 
-<div class="nav">
-  <ul>
-    <li>
-      <a class="icon" [routerLink]="['/overview']" routerLinkActive="active">
-        <img src="assets/logo/概览.png" />
-      </a>
-      <a [routerLink]="['/overview']" routerLinkActive="active">方言概览</a>
-    </li>
-    <li>
-      <a class="icon" [routerLink]="['/related']" routerLinkActive="active">
-        <img src="assets/logo/动态.png" />
-      </a>
-      <a [routerLink]="['/related']" routerLinkActive="active">相关动态</a>
-    </li>
+<div class="nav-container">
+  <div class="nav">
+    <ul>
+      <li>
+        <a class="icon" [routerLink]="['/overview']" routerLinkActive="active">
+          <img src="assets/logo/概览.png" />
+        </a>
+        <a [routerLink]="['/overview']" routerLinkActive="active">方言概览</a>
+      </li>
+      <li>
+        <a class="icon" [routerLink]="['/related']" routerLinkActive="active">
+          <img src="assets/logo/动态.png" />
+        </a>
+        <a [routerLink]="['/related']" routerLinkActive="active">友情链接</a>
+      </li>
 
-    <li>
-      <a class="icon" [routerLink]="['/audio']" routerLinkActive="active">
-        <img src="assets/logo/音频.png" />
-      </a>
-      <a [routerLink]="['/audio']" routerLinkActive="active">方言音频</a>
-    </li>
-    <li>
-      <a class="icon" [routerLink]="['/video']" routerLinkActive="active">
-        <img src="assets/logo/视频.png" />
-      </a>
-      <a [routerLink]="['/video']" routerLinkActive="active">方言视频</a>
-    </li>
-    <li>
-      <a class="icon" [routerLink]="['/picture']" routerLinkActive="active">
-        <img src="assets/logo/荟萃.png" />
-      </a>
-      <a [routerLink]="['/picture']" routerLinkActive="active">建设图库</a>
-    </li>
-    <li>
-      <a class="icon" [routerLink]="['/research']" routerLinkActive="active">
-        <img src="assets/logo/研究.png" />
-      </a>
-      <a [routerLink]="['/research']" routerLinkActive="active">方言研究</a>
-    </li>
-  </ul>
+      <li>
+        <a class="icon" [routerLink]="['/audio']" routerLinkActive="active">
+          <img src="assets/logo/音频.png" />
+        </a>
+        <a [routerLink]="['/audio']" routerLinkActive="active">方言音频</a>
+      </li>
+      <li>
+        <a class="icon" [routerLink]="['/video']" routerLinkActive="active">
+          <img src="assets/logo/视频.png" />
+        </a>
+        <a [routerLink]="['/video']" routerLinkActive="active">方言视频</a>
+      </li>
+      <li>
+        <a class="icon" [routerLink]="['/picture']" routerLinkActive="active">
+          <img src="assets/logo/荟萃.png" />
+        </a>
+        <a [routerLink]="['/picture']" routerLinkActive="active">拍摄花絮</a>
+      </li>
+      <li>
+        <a class="icon" [routerLink]="['/research']" routerLinkActive="active">
+          <img src="assets/logo/研究.png" />
+        </a>
+        <a [routerLink]="['/research']" routerLinkActive="active">方言研究</a>
+      </li>
+    </ul>
+  </div>
+
+  <div class="announcement">
+    <p>
+      【特别声明】：本平台相关动态来源于网络和网友发布，版权归原作者所有，如有侵权请立即与我们联系，我们将及时处理。
+    </p>
+  </div>
 </div>

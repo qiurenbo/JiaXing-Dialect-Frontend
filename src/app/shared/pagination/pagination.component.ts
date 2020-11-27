@@ -26,7 +26,8 @@ export class PaginationComponent implements OnInit {
   @Output()
   pageChange = new EventEmitter<number>();
 
-  currentIdx = 0;
+  @Input()
+  currentIdx: number = 0;
 
   selectChange(i: number): void {
     this.currentIdx = i;

@@ -1,8 +1,10 @@
 <div class="main" *ngIf="word">
   <div class="wd">
+    <img *ngIf="word.picture" [src]="word.picture.formats.thumbnail.url" />
     {{ this.word.name }} &nbsp; {{ this.status }}
     {{ this.tip }}
   </div>
+
   <table class="m-table">
     <thead>
       <tr class="title">

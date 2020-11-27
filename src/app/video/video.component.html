@@ -7,6 +7,7 @@
   <div
     *ngFor="let video of videos"
     fxLayout="column"
+    class="img-container"
     fxLayoutAlign="center center"
     [routerLink]="['/video', video.id]"
   >

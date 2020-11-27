@@ -3,7 +3,7 @@ import Recorder from "js-audio-recorder";
 
 import { Howl } from "howler";
 import { WordService } from "src/app/core/word.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ASRService } from "src/app/core/asr.service";
 import { forkJoin } from "rxjs";
 
@@ -16,8 +16,15 @@ export class WordPlayComponent implements OnInit {
   constructor(
     private wordService: WordService,
     private asrService: ASRService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.router.events.subscribe(() => {
+      if (this.sound) {
+        this.sound.stop();
+      }
+    });
+  }
 
   // indicate to play id
   playId = -1;
@@ -98,6 +105,7 @@ export class WordPlayComponent implements OnInit {
         this.asrService.asrByUrl(this.word.audios[id].audio.url),
         this.asrService.asr(this.recorder.getWAVBlob())
       ).subscribe((msgs) => {
+        console.log(msgs);
         if (msgs[0].err_msg === "success." && msgs[1].err_msg === "success.") {
           let score = this.asrService.calcScore(
             msgs[0].result[0],
@@ -109,10 +117,10 @@ export class WordPlayComponent implements OnInit {
           }
 
           if (score < 50) {
-            this.tip = "继续努力！";
+            this.tip = "加油！";
           }
         } else {
-          this.tip = "请先录音！";
+          this.tip = "重试！";
         }
       });
     }

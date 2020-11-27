@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Howl } from "howler";
+import { Howl, Howler } from "howler";
 import { SongService } from "src/app/core/song.service";
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, NavigationStart, Router } from "@angular/router";
 
 @Component({
   selector: "app-song-play",
@@ -12,8 +12,15 @@ import { ActivatedRoute } from "@angular/router";
 export class SongPlayComponent implements OnInit {
   constructor(
     private songService: SongService,
-    private route: ActivatedRoute
-  ) {}
+    private route: ActivatedRoute,
+    private router: Router
+  ) {
+    this.router.events.subscribe((event) => {
+      if (this.sound) {
+        this.sound.stop();
+      }
+    });
+  }
 
   // indicate to play id
   playId = -1;

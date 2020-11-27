@@ -1,5 +1,5 @@
 @import "src/app/styles/mixins";
-
+@import "src/app/styles/mixins";
 :host {
   @include host-style;
   display: flex;
@@ -11,6 +11,8 @@
 .main {
   .wd {
     font: 45px/60px "楷体";
-    overflow-y: hidden;
+    height: 300px;
+    margin-bottom: 10px;
+    overflow-y: auto;
   }
 }

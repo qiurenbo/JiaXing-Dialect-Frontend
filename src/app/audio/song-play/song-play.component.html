@@ -1,6 +1,8 @@
 <div class="main" *ngIf="song">
   <div class="wd">
-    {{ this.song.desc }}
+    {{ this.song.name }}
+    <br />
+    {{ this.song.content }}
   </div>
   <table class="m-table">
     <thead>
@@ -18,10 +20,7 @@
       <tr *ngFor="let item of song.audios; let i = index">
         <td>
           <span class="num">{{ i + 1 }}</span
-          ><span
-            (click)="onPlay(i)"
-            [ngClass]="[playId === i ? 'pause' : 'ply']"
-          ></span>
+          ><span (click)="onPlay(i)" class="ply"></span>
         </td>
         <td>{{ item.region }}</td>
         <td>{{ item.author }}</td>

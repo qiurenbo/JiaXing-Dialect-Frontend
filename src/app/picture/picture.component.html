@@ -1,17 +1,27 @@
-<div
-  class="container"
-  fxLayout="row layout-wrap"
-  fxLayoutAlign="start start"
-  fxLayoutGap="10px"
-  *ngIf="pictures"
->
+<div class="container">
   <div
-    *ngFor="let picture of pictures"
-    fxLayout="column"
-    fxLayoutAlign="center center"
-    (click)="zoom(picture.picture.formats.medium.url)"
+    class="gallery"
+    fxLayout="row layout-wrap"
+    fxLayoutAlign="start start"
+    fxLayoutGap="10px"
+    *ngIf="pictures"
   >
-    <img [src]="picture.picture.formats.thumbnail.url" />
-    <span>{{ picture.title }}</span>
+    <div
+      *ngFor="let picture of pictures"
+      fxLayout="column"
+      fxLayoutAlign="center center"
+      (click)="zoom(picture.picture.formats.medium.url)"
+      class="img-container"
+    >
+      <img [src]="picture.picture.formats.thumbnail.url" />
+      <!-- <span>{{ picture.title }}</span> -->
+    </div>
   </div>
+
+  <app-pagination
+    [pageTotal]="pageTotal"
+    [pageSize]="pageSize"
+    (pageChange)="pageChange($event)"
+    [currentIdx]="index"
+  ></app-pagination>
 </div>

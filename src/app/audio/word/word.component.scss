@@ -3,114 +3,53 @@
   @include host-style;
 }
 
-ul {
-  list-style: none;
-  margin: 0px;
-  li {
-    float: left;
-  }
+@include audio-style;
+
+.search {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+}
+.search input {
+  outline-style: none;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  padding: 13px 14px;
+  width: 620px;
+  font-size: 21px;
+  font-weight: 500;
+  font-family: "Microsoft soft";
+  margin-right: 20px;
 }
 
-#list-container {
-  // horizontally and vertically center
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 70%;
-  height: 70%;
-  padding: 0;
-  margin: auto;
-  overflow-y: auto;
-  li {
-    overflow: hidden;
-    width: 220px;
-    height: 58px;
-    float: left;
-    margin: 0px 10px 10px;
-    border: 1px solid #bebebe;
-    border-radius: 10px;
-
-    &:hover {
-      border: 1px solid #470b02;
-    }
-
-    .content {
-      width: 80%;
-      margin: auto;
-
-      i {
-        width: 15px;
-        margin-right: 2px;
-      }
-
-      span {
-        // https://developer.mozilla.org/en-US/docs/Web/CSS/user-selectwidth: 100%;
-        text-align: center;
-        font: 26px/58px 黑体;
-        user-select: none;
-        color: rgb(35, 24, 21);
-        font: 26px/58px "SimHei";
-      }
-    }
-  }
-}
-@import "src/app/styles/mixins";
-:host {
-  @include host-style;
+.search button {
+  width: 100px;
+  padding: 8px;
+  background-color: #428bca;
+  border-color: #357ebd;
+  color: #fff;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  font-weight: 900;
+  font-size: 125%;
 }
 
-ul {
-  list-style: none;
-  margin: 0px;
-  li {
-    float: left;
-  }
+.search input:focus {
+  border-color: #66afe9;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px rgba(102, 175, 233, 0.6);
 }
 
-#list-container {
-  // horizontally and vertically center
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 70%;
-  height: 70%;
-  padding: 0;
-  margin: auto;
-  overflow-y: auto;
-  li {
-    overflow: hidden;
-    width: 220px;
-    height: 58px;
-    float: left;
-    margin: 0px 10px 10px;
-    border: 1px solid #bebebe;
-    border-radius: 10px;
-
-    &:hover {
-      border: 1px solid #470b02;
-    }
-
-    .content {
-      width: 80%;
-      margin: auto;
-
-      i {
-        width: 15px;
-        margin-right: 2px;
-      }
-
-      span {
-        // https://developer.mozilla.org/en-US/docs/Web/CSS/user-selectwidth: 100%;
-        text-align: center;
-        font: 26px/58px 黑体;
-        user-select: none;
-        color: rgb(35, 24, 21);
-        font: 26px/58px "SimHei";
-      }
-    }
-  }
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

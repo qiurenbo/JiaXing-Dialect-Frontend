@@ -9,6 +9,8 @@ import { SentenceComponent } from "./sentence/sentence.component";
 import { SentencePlayComponent } from "./sentence-play/sentence-play.component";
 import { SongComponent } from "./song/song.component";
 import { SongPlayComponent } from "./song-play/song-play.component";
+import { StoryComponent } from "./story/story.component";
+import { StoryPlayComponent } from "./story-play/story-play.component";
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { SongPlayComponent } from "./song-play/song-play.component";
     SentencePlayComponent,
     SongComponent,
     SongPlayComponent,
+    StoryComponent,
+    StoryPlayComponent,
   ],
   imports: [CommonModule, AudioRoutingModule, SharedModule],
   exports: [],

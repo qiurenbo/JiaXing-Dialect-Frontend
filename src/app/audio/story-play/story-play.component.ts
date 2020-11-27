@@ -1,17 +1,17 @@
 import { Component, OnInit } from "@angular/core";
 
-import { Howl } from "howler";
-import { SentenceService } from "src/app/core/sentence.service";
+import { Howl, Howler } from "howler";
+import { StoryService } from "src/app/core/story.service";
 import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: "app-sentence-play",
-  templateUrl: "./sentence-play.component.html",
-  styleUrls: ["./sentence-play.component.scss"],
+  selector: "app-story-play",
+  templateUrl: "./story-play.component.html",
+  styleUrls: ["./story-play.component.scss"],
 })
-export class SentencePlayComponent implements OnInit {
+export class StoryPlayComponent implements OnInit {
   constructor(
-    private sentenceService: SentenceService,
+    private storyService: StoryService,
     private route: ActivatedRoute,
     private router: Router
   ) {
@@ -29,16 +29,16 @@ export class SentencePlayComponent implements OnInit {
   // indicate to analyze progress
   status = "";
 
-  // sentence audio list
-  sentence: any;
+  // story audio list
+  story: any;
   sound: Howl;
 
   tip: string = "";
 
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get("id");
-    this.sentenceService.getSentenceById(id).subscribe((sentence: any) => {
-      this.sentence = sentence;
+    this.storyService.getStoryById(id).subscribe((story: any) => {
+      this.story = story;
     });
   }
 
@@ -50,7 +50,7 @@ export class SentencePlayComponent implements OnInit {
     }
 
     this.sound = new Howl({
-      src: [this.sentence.audios[id].audio.url],
+      src: [this.story.audios[id].audio.url],
     });
 
     this.sound.play();
