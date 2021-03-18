@@ -74,9 +74,12 @@ ul {
 }
 
 .announcement {
-  margin-top: 50px;
+  position: absolute;
+  bottom: 20px;
+  width: 50%;
 }
 
 .announcement p {
   font-weight: 800;
+  font-size: 14px;
 }
